@@ -11,6 +11,12 @@
 		9522595627D6B24E009D61BB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9522595527D6B24E009D61BB /* ContentView.swift */; };
 		9522595827D6B24E009D61BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9522595727D6B24E009D61BB /* Assets.xcassets */; };
 		9522595B27D6B24E009D61BB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9522595A27D6B24E009D61BB /* Preview Assets.xcassets */; };
+		95DF1E3027D7BCC90089E203 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DF1E2F27D7BCC90089E203 /* Location.swift */; };
+		95DF1E3227D7C01E0089E203 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DF1E3127D7C01E0089E203 /* MapViewModel.swift */; };
+		A33FD92D27F45D7E0010FC5B /* itemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33FD92C27F45D7E0010FC5B /* itemModel.swift */; };
+		A33FD92F27F466EA0010FC5B /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33FD92E27F466EA0010FC5B /* ListViewModel.swift */; };
+		A3D19C6D27F44EA800C41A08 /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D19C6C27F44EA800C41A08 /* ListRowView.swift */; };
+		A3D19C6F27F44FEA00C41A08 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D19C6E27F44FEA00C41A08 /* AddView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,12 @@
 		9522595527D6B24E009D61BB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9522595727D6B24E009D61BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9522595A27D6B24E009D61BB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		95DF1E2F27D7BCC90089E203 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		95DF1E3127D7C01E0089E203 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		A33FD92C27F45D7E0010FC5B /* itemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemModel.swift; sourceTree = "<group>"; };
+		A33FD92E27F466EA0010FC5B /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		A3D19C6C27F44EA800C41A08 /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
+		A3D19C6E27F44FEA00C41A08 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +63,18 @@
 		9522595227D6B24E009D61BB /* GeoMap */ = {
 			isa = PBXGroup;
 			children = (
+				A33FD92927F45CE50010FC5B /* Views */,
+				A33FD92827F45CC20010FC5B /* Models */,
 				9522595327D6B24E009D61BB /* GeoMapApp.swift */,
+				A33FD92C27F45D7E0010FC5B /* itemModel.swift */,
 				9522595527D6B24E009D61BB /* ContentView.swift */,
+				A3D19C6C27F44EA800C41A08 /* ListRowView.swift */,
+				A3D19C6E27F44FEA00C41A08 /* AddView.swift */,
+				95DF1E3127D7C01E0089E203 /* MapViewModel.swift */,
+				95DF1E2F27D7BCC90089E203 /* Location.swift */,
 				9522595727D6B24E009D61BB /* Assets.xcassets */,
 				9522595927D6B24E009D61BB /* Preview Content */,
+				A33FD92E27F466EA0010FC5B /* ListViewModel.swift */,
 			);
 			path = GeoMap;
 			sourceTree = "<group>";
@@ -65,6 +85,20 @@
 				9522595A27D6B24E009D61BB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A33FD92827F45CC20010FC5B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A33FD92927F45CE50010FC5B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +172,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9522595627D6B24E009D61BB /* ContentView.swift in Sources */,
+				95DF1E3027D7BCC90089E203 /* Location.swift in Sources */,
+				A3D19C6F27F44FEA00C41A08 /* AddView.swift in Sources */,
+				A3D19C6D27F44EA800C41A08 /* ListRowView.swift in Sources */,
+				A33FD92D27F45D7E0010FC5B /* itemModel.swift in Sources */,
 				9522595427D6B24E009D61BB /* GeoMapApp.swift in Sources */,
+				A33FD92F27F466EA0010FC5B /* ListViewModel.swift in Sources */,
+				95DF1E3227D7C01E0089E203 /* MapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +312,8 @@
 				DEVELOPMENT_TEAM = 8S8EJS2M66;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use your location to indicate whether or not you are inside the geofence.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to indicate whether or not you are inside the geofence.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -301,6 +343,8 @@
 				DEVELOPMENT_TEAM = 8S8EJS2M66;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use your location to indicate whether or not you are inside the geofence.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to indicate whether or not you are inside the geofence.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

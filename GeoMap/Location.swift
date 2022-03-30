@@ -1,8 +1,8 @@
-//
-//  Location.swift
-//  GeoMap
-//
-//  Created by Frank Solleveld on 08/03/2022.
-//
-
 import Foundation
+import CoreLocation
+
+struct Location: Identifiable {
+    let id = UUID()
+    let name: String
+    let coordinate: CLLocationCoordinate2D
+}
