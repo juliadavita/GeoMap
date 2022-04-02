@@ -14,6 +14,7 @@ struct ContentView: View {
             VStack {
                 HiddenListView()
                   .opacity(viewModel.isUserInRegion() ? 1 : 0)
+              Text(viewModel.getCoordinatesForGeofence())
                 Map(coordinateRegion: $viewModel.region, showsUserLocation: true,
                     annotationItems: [MapDefaults.location]
                 ) { location in

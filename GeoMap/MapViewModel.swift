@@ -140,6 +140,10 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
         defaults.set(isUserInRegion, forKey: "IsUserInRegion")
     }
 
+    func getCoordinatesForGeofence() -> String {
+      "Lat: \(region.center.latitude), Lon: \(region.center.longitude)"
+    }
+
     func isUserInRegion() -> Bool {
         let defaults = UserDefaults.standard
         let isUserInRegion = defaults.bool(forKey: "IsUserInRegion")
