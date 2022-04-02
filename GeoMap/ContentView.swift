@@ -67,22 +67,31 @@ struct ContentView: View {
                 Spacer()
             }
             .navigationTitle("Hide 'n Seek")
-            .navigationBarItems(
-                leading: EditButton(),
-                trailing:
-                Button(
-                    action: {
-                        viewModel.checkLocationAuthorization()
-                    },
-                    label: {
-                        if viewModel.locationServicesEnabled {
-                            Image(systemName: "location.fill")
-                        } else {
-                            Image(systemName: "location")
-                        }
-                    }
-                )
-            )
+            .toolbar(content: {
+              ToolbarItem(
+                placement: .navigationBarLeading,
+                content: {
+                  EditButton()
+                }
+              )
+              ToolbarItem(
+                placement: .navigationBarTrailing,
+                content: {
+                  Button(
+                      action: {
+                          viewModel.checkLocationAuthorization()
+                      },
+                      label: {
+                          if viewModel.locationServicesEnabled {
+                              Image(systemName: "location.fill")
+                          } else {
+                              Image(systemName: "location")
+                          }
+                      }
+                  )
+                }
+              )
+            })
         }
         .onAppear(perform: viewModel.checkForLocationPermissions)
         .onAppear(perform: viewModel.saveRegion)
