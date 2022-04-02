@@ -38,6 +38,8 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
         return CLLocationManager.locationServicesEnabled()
     }
 
+    var previousNotificationReason: NotificationReason?
+
     func checkForLocationPermissions() {
         if CLLocationManager.locationServicesEnabled() {
             locationManager = CLLocationManager()
@@ -92,10 +94,29 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
         monitorRegion.notifyOnEntry = true
         monitorRegion.notifyOnExit = true
         locationManager?.startMonitoring(for: monitorRegion)
+      print("Location Manager started monitoring")
+    }
+
+    func notificationRequest() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+            if granted {
+                print("UNUserNotificationCenter: User granted permission.")
+            } else if let err = error {
+                print("UNUserNotificationCenter: An error occured \(err)")
+            }
+        }
+    }
+
+    func clearNotifications() {
+      UIApplication.shared.applicationIconBadgeNumber = 0
+      UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+      UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
 
     private func sendNotification(reason: NotificationReason) {
+        guard reason != previousNotificationReason else { return }
         let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = "GeoMap Region Notifier"
         notificationContent.body =
         reason == .userEnteredRegion ? "You entered the saved geofence region." : "You left the saved geofence region."
         notificationContent.sound = .default
@@ -112,6 +133,7 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
                 print("Error sending notification: \(error)")
             }
         }
+        previousNotificationReason = reason
         // Set User Default Key
         let defaults = UserDefaults.standard
         let isUserInRegion: Bool = reason == .userEnteredRegion

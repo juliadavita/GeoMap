@@ -7,6 +7,7 @@ struct ContentView: View {
     @StateObject private var viewModel = MapViewModel()
     
     @EnvironmentObject var listViewModel: ListViewModel
+    @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         NavigationView {
@@ -93,6 +94,20 @@ struct ContentView: View {
               )
             })
         }
+        .onChange(of: scenePhase) { phase in
+          switch phase {
+          case .background:
+            break
+          case .inactive:
+            break
+          case .active:
+            viewModel.clearNotifications()
+          @unknown default:
+            break
+          }
+        }
+        .onAppear(perform: viewModel.clearNotifications)
+        .onAppear(perform: viewModel.notificationRequest)
         .onAppear(perform: viewModel.checkForLocationPermissions)
         .onAppear(perform: viewModel.saveRegion)
     }
