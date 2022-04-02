@@ -47,7 +47,7 @@ struct ContentView: View {
                 .padding()
 
                 if viewModel.isUserInRegion() {
-                    Text("You can see the hidden objects now.")
+                    Text("You can see the hidden objects now!")
                         .padding(10)
                 } else {
                     Text("You are not in the correct region to find something 😢")
