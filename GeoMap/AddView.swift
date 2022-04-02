@@ -36,7 +36,7 @@ struct AddView: View{
             }
             .padding(14)
         }
-        .navigationTitle("Add a mission 🕹")
+        .navigationTitle("Add a goal 🎯")
         .alert(isPresented: $showAlert, content:getAlert)
     }
     
@@ -50,7 +50,7 @@ struct AddView: View{
     
     func textIsAppropriate() -> Bool {
         if textFieldText.count < 5 {
-            alertTitle = "Your new mission must be atleast 5 characters 🥺"
+            alertTitle = "Your new goal must be atleast 5 characters 🥺"
             return false
         }
         return true

@@ -11,20 +11,33 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                List{
-                    ForEach(listViewModel.items) { item in
-                        ListRowView(item: item)
-                            .onTapGesture {
-                                withAnimation(.linear) {
-                                    listViewModel.updateItem(item: item)
+                if listViewModel.items.isEmpty {
+                    Text("You don't want to find anything? Let's add something new to your list to find!")
+                        .offset(x: -17)
+                        
+                } else {
+                    List{
+                        ForEach(listViewModel.items) { item in
+                            ListRowView(item: item)
+                                .onTapGesture {
+                                    withAnimation(.linear) {
+                                        listViewModel.updateItem(item: item)
+                                    }
                                 }
-                            }
+                        }
+                        .onDelete(perform: listViewModel.deleteItem)
+                        .onMove(perform: listViewModel.moveItem)
                     }
-                    .onDelete(perform: listViewModel.deleteItem)
-                    .onMove(perform: listViewModel.moveItem)
+                    .listStyle(PlainListStyle())
                 }
-                .listStyle(PlainListStyle())
-                EditButton()
+                NavigationLink("Add an item 😏✨", destination: AddView())
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    .frame(height: 55)
+                    .frame(maxWidth: . infinity)
+                    .background(Color.accentColor)
+                    .cornerRadius(10)
+                    .padding(10)
                 Spacer()
                 Map(coordinateRegion: $viewModel.region, showsUserLocation: true,
                     annotationItems: [MapDefaults.location]
@@ -34,10 +47,14 @@ struct ContentView: View {
                 .padding()
 
                 if viewModel.isUserInRegion() {
-                    Text("You can see your secret pics now.")
+                    Text("You can see the hidden objects now.")
+                        .padding(10)
                 } else {
-                    Text("You are not in the geofence region.")
+                    Text("You are not in the correct region to find something 😢")
+                        .frame(width: 330, height: 50, alignment: .center)
+                        .multilineTextAlignment(.center)
                 }
+                    
 
                 Button(
                     action: {
@@ -49,9 +66,9 @@ struct ContentView: View {
                 )
                 Spacer()
             }
-            .navigationTitle("Where are the pics?")
+            .navigationTitle("Hide 'n Seek")
             .navigationBarItems(
-                leading: NavigationLink("Add", destination: AddView()),
+                leading: EditButton(),
                 trailing:
                 Button(
                     action: {
@@ -75,8 +92,10 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-            .environmentObject(ListViewModel())
+        Group {
+            ContentView()
+                .environmentObject(ListViewModel())
+        }
     }
         
 }
