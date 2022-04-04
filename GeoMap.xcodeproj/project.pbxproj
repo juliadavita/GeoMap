@@ -314,7 +314,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GeoMap/Preview Content\"";
-				DEVELOPMENT_TEAM = 8S8EJS2M66;
+				DEVELOPMENT_TEAM = U6NQRQ26X2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use your location to indicate whether or not you are inside the geofence.";
@@ -347,7 +347,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GeoMap/Preview Content\"";
-				DEVELOPMENT_TEAM = 8S8EJS2M66;
+				DEVELOPMENT_TEAM = U6NQRQ26X2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use your location to indicate whether or not you are inside the geofence.";
