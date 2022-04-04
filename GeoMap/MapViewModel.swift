@@ -116,9 +116,9 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
     private func sendNotification(reason: NotificationReason) {
         guard reason != previousNotificationReason else { return }
         let notificationContent = UNMutableNotificationContent()
-        notificationContent.title = "GeoMap Region Notifier"
+        notificationContent.title = "Secret List finder"
         notificationContent.body =
-        reason == .userEnteredRegion ? "You entered the saved geofence region." : "You left the saved geofence region."
+        reason == .userEnteredRegion ? "You are in the location to see your Secret List!" : "There are no lists to see."
         notificationContent.sound = .default
         notificationContent.badge =  UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
@@ -151,7 +151,7 @@ final class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate 
     }
 
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        print("User enteres region")
+        print("User enters region")
         if UIApplication.shared.applicationState != .active {
             sendNotification(reason: .userEnteredRegion)
         }

@@ -14,7 +14,7 @@ struct ContentView: View {
             VStack {
                 HiddenListView()
                   .opacity(viewModel.isUserInRegion() ? 1 : 0)
-              Text(viewModel.getCoordinatesForGeofence())
+//              Text(viewModel.getCoordinatesForGeofence())
                 Map(coordinateRegion: $viewModel.region, showsUserLocation: true,
                     annotationItems: [MapDefaults.location]
                 ) { location in
@@ -23,10 +23,10 @@ struct ContentView: View {
                 .padding()
 
                 if viewModel.isUserInRegion() {
-                    Text("You can see the hidden objects now!")
+                    Text("You can see your list now! 🥳")
                         .padding(10)
                 } else {
-                    Text("You are not in the correct region to find something 😢")
+                    Text("You are not in the correct region to see the list 😢")
                         .frame(width: 330, height: 50, alignment: .center)
                         .multilineTextAlignment(.center)
                 }
@@ -37,12 +37,12 @@ struct ContentView: View {
                         viewModel.saveRegion()
                     },
                     label: {
-                        Text("Set Current Location as Monitoring Region")
+                        Text("Set new location for secret list")
                     }
                 )
                 Spacer()
             }
-            .navigationTitle("Hide 'n Seek")
+            .navigationTitle("Secret list")
             .toolbar(content: {
               ToolbarItem(
                 placement: .navigationBarLeading,

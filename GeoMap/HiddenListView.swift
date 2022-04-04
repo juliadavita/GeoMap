@@ -1,10 +1,3 @@
-//
-//  HiddenListView.swift
-//  GeoMap
-//
-//  Created by Frank Solleveld on 02/04/2022.
-//
-
 import SwiftUI
 
 struct HiddenListView: View {
